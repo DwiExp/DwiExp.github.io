@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100vh; /* Sesuai dengan tinggi layar */
-    background: url('https://raw.githubusercontent.com/DwiExp/DwiExp.github.io/refs/heads/main/file/IMG-20240413-WA0011.jpg') no-repeat center center;
+    background: url('https://raw.githubusercontent.com/DwiExp/DwiExp.github.io/refs/heads/main/file/cover.jpg') no-repeat center center;
     background-size: cover; /* Membuat gambar memenuhi layar tanpa terpotong */
     z-index: 9999;
     display: flex;
