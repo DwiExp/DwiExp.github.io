@@ -1,0 +1,298 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background: url('path_to_header_background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Section Styles */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section h2 {
+    margin-bottom: 15px;
+}
+
+/* Countdown Timer */
+#timer {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Comment Section */
+.attendance-options {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.attendance-label {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none; /* Menyembunyikan input radio asli */
+}
+
+.attendance-text {
+    margin-left: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    #timer {
+        font-size: 1.2rem;
+    }
+}
+
+/* Comment Section */
+#guest-comments {
+    text-align: center; /* Rata tengah untuk teks */
+}
+
+#guest-comments form {
+    display: inline-block; /* Membuat form menjadi inline-block agar dapat diatur posisinya */
+    margin: 0 auto; /* Margin otomatis untuk mengatur posisi tengah */
+    width: 100%; /* Lebar form 100% agar responsive */
+    max-width: 400px; /* Membatasi lebar form */
+}
+
+#guest-comments input[type="text"],
+#guest-comments textarea {
+    width: 100%; /* Lebar input dan textarea 100% untuk responsivitas */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#guest-comments button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Warna hijau untuk tombol */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#guest-comments button:hover {
+    background-color: #218838; /* Warna tombol saat hover */
+}
+
+.attendance-label {
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+.attendance-text {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Warna saat dipilih */
+.attendance-text.selected-yes {
+    background-color: #28a745; /* Hijau untuk Hadir */
+    color: white;
+}
+
+.attendance-text.selected-no {
+    background-color: #dc3545; /* Merah untuk Tidak Hadir */
+    color: white;
+}
+
+#guest-comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Atur lebar maksimum sesuai kebutuhan */
+}
+
+#guest-name,
+#guest-comment,
+.attendance-text {
+    width: 100%; /* Membuat semua input dan textarea lebar 100% */
+    margin-bottom: 10px; /* Jarak antar elemen */
+}
+
+.attendance-options {
+    display: flex;
+    justify-content: space-between; /* Menyebar tombol ke kiri dan kanan */
+}
+
+.attendance-label {
+    flex: 1; /* Membuat label memiliki lebar yang sama */
+    margin: 0 10px; /* Jarak antar label */
+}
+
+.attendance-text {
+    display: flex;
+    justify-content: center; /* Mengatur teks di tengah */
+    align-items: center;
+    padding: 10px 0; /* Ruang dalam tombol */
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.attendance-text.selected-yes {
+    background-color: #28a745; /* Hijau untuk Hadir */
+    color: white;
+}
+
+.attendance-text.selected-no {
+    background-color: #dc3545; /* Merah untuk Tidak Hadir */
+    color: white;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Gaya untuk Popup Musik */
+.music-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#playPauseButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 20px;
+}
+
+#playPauseButton:hover {
+    background-color: #0056b3;
+}
+
+#playPauseIcon {
+    pointer-events: none; /* Mencegah klik pada ikon saja */
+}
+
+
+
+
+/* Galeri Foto */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-gallery img {
+    width: calc(25% - 20px); /* Atur lebar gambar dalam galeri */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+    .photo-gallery img {
+        width: calc(50% - 20px); /* Lebar gambar di layar kecil */
+    }
+
+    .attendance-options {
+        flex-direction: column; /* Ubah tata letak untuk perangkat kecil */
+        align-items: stretch; /* Renggangkan */
+    }
+
+    .attendance-label {
+        margin: 10px 0; /* Jarak antar label pada perangkat kecil */
+    }
+
+    button {
+        width: 100%; /* Tombol mengisi lebar pada perangkat kecil */
+    }
+}
