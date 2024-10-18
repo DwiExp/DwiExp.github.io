@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Navigasi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Tombol Menu -->
+    <div class="menu-button" id="menuButton" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Tombol Close -->
+    <div class="close-button" id="closeButton" onclick="toggleMenu()">&times;</div>
+
+    <!-- Menu Navigasi -->
+    <nav id="menu" class="menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <h1>Welcome to Our Website</h1>
+        <p>Click the menu button in the top right corner to navigate.</p>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            var menuButton = document.getElementById("menuButton");
+            var closeButton = document.getElementById("closeButton");
+            menu.classList.toggle("show");
+
+            if (menu.classList.contains("show")) {
+                menuButton.style.display = "none";
+                closeButton.style.display = "block";
+            } else {
+                menuButton.style.display = "block";
+                closeButton.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
