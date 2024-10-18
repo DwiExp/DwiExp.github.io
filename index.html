@@ -1,49 +1,131 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan</title>
+    <title>Wedding of Jaenudin & Juleha</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>Wedding Of Jaenudin & Juleha</h1>
-    <div id="timeCounter"></div>
-    
-    <h2>Foto Mempelai Laki-laki</h2>
-    <img src="path/to/jaenudin.jpg" alt="Jaenudin" />
-
-    <h2>Foto Mempelai Perempuan</h2>
-    <img src="path/to/juleha.jpg" alt="Juleha" />
-
-    <h2>Informasi Resepsi & Akad</h2>
-    <p>Detail acara di sini...</p>
-
-    <h2>Galeri Foto</h2>
-    <div class="photo-gallery">
-        <img src="path/to/photo1.jpg" alt="Foto 1" />
-        <img src="path/to/photo2.jpg" alt="Foto 2" />
-        <img src="path/to/photo3.jpg" alt="Foto 3" />
-        <img src="path/to/photo4.jpg" alt="Foto 4" />
-        <img src="path/to/photo5.jpg" alt="Foto 5" />
-        <img src="path/to/photo6.jpg" alt="Foto 6" />
-        <img src="path/to/photo7.jpg" alt="Foto 7" />
-        <img src="path/to/photo8.jpg" alt="Foto 8" />
+    <!-- Tombol Menu -->
+    <div class="menu-button" id="menuButton" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
-    <h2>Komentar Tamu</h2>
-    <form id="guestForm">
-        <input type="text" id="name" placeholder="Nama" required />
-        <select id="attendance" required>
-            <option value="yes">Hadir</option>
-            <option value="no">Tidak Hadir</option>
-        </select>
-        <textarea id="message" placeholder="Komentar" required></textarea>
-        <button type="submit">Kirim Komentar</button>
-    </form>
+    <!-- Tombol Close -->
+    <div class="close-button" id="closeButton" onclick="toggleMenu()">&times;</div>
 
-    <div id="guestComments"></div>
+    <!-- Menu Navigasi -->
+    <nav id="menu" class="menu">
+        <ul>
+            <li><a href="#wedding-title">Home</a></li>
+            <li><a href="#groom-bride">Mempelai</a></li>
+            <li><a href="#wedding-info">Resepsi & Akad</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#comments-attendance">Komentar & Absensi</a></li>
+        </ul>
+    </nav>
 
+    <!-- Konten Undangan -->
+    <section id="wedding-title">
+        <h1>Wedding of Jaenudin & Juleha</h1>
+    </section>
+
+    <section id="time-counter">
+        <h2>Countdown to the Wedding</h2>
+        <div id="countdown">
+            <p id="countdown-timer">00 Days 00 Hours 00 Minutes 00 Seconds</p>
+        </div>
+    </section>
+
+    <section id="groom-bride">
+        <div class="groom">
+            <img src="groom.jpg" alt="Jaenudin" class="groom-photo">
+            <h3>Jaenudin</h3>
+        </div>
+        <div class="bride">
+            <img src="bride.jpg" alt="Juleha" class="bride-photo">
+            <h3>Juleha</h3>
+        </div>
+    </section>
+
+    <section id="wedding-info">
+        <h2>Reception & Ceremony Information</h2>
+        <p>Akad: 25 December 2024, 09:00 AM, at XYZ Mosque</p>
+        <p>Reception: 25 December 2024, 12:00 PM, at ABC Hall</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-container">
+            <img src="photo1.jpg" alt="Gallery Photo 1">
+            <img src="photo2.jpg" alt="Gallery Photo 2">
+            <img src="photo3.jpg" alt="Gallery Photo 3">
+            <img src="photo4.jpg" alt="Gallery Photo 4">
+            <img src="photo5.jpg" alt="Gallery Photo 5">
+            <img src="photo6.jpg" alt="Gallery Photo 6">
+            <img src="photo7.jpg" alt="Gallery Photo 7">
+            <img src="photo8.jpg" alt="Gallery Photo 8">
+        </div>
+    </section>
+
+    <section id="comments-attendance">
+        <h2>Guest Comments & Attendance Confirmation</h2>
+        <form id="attendance-form">
+            <label for="guest-name">Name:</label>
+            <input type="text" id="guest-name" name="guest-name" required>
+
+            <label for="guest-comment">Message:</label>
+            <textarea id="guest-comment" name="guest-comment" required></textarea>
+
+            <label for="attendance">Will you attend?</label>
+            <select id="attendance" name="attendance" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            var menuButton = document.getElementById("menuButton");
+            var closeButton = document.getElementById("closeButton");
+            menu.classList.toggle("show");
+
+            if (menu.classList.contains("show")) {
+                menuButton.style.display = "none";
+                closeButton.style.display = "block";
+            } else {
+                menuButton.style.display = "block";
+                closeButton.style.display = "none";
+            }
+        }
+
+        const countdownDate = new Date("December 25, 2024 09:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown-timer").innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown-timer").innerHTML = "The Wedding has Started!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
