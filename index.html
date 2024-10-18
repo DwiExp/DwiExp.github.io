@@ -137,7 +137,7 @@ function toggleButton(choice) {
     <audio id="audioPlayer" src="file/separuhku.mp3" preload="auto"></audio>
 </div>
 
-    <script>
+<script>
 // Variabel untuk audio dan tombol
 var audioPlayer = document.getElementById("audioPlayer");
 var playPauseButton = document.getElementById("playPauseButton");
@@ -158,14 +158,16 @@ function toggleMusic() {
 
 // Otomatis play musik saat halaman dimuat
 window.addEventListener("load", function() {
+    // Coba untuk autoplay
     audioPlayer.play().then(() => {
-        // Ubah ikon menjadi pause setelah musik mulai
+        // Ubah ikon menjadi pause jika autoplay berhasil
         playPauseIcon.classList.remove('fa-play');
         playPauseIcon.classList.add('fa-pause');
     }).catch((error) => {
-        // Jika autoplay tidak diizinkan oleh browser, tetap di play mode
-        playPauseIcon.classList.remove('fa-pause');
-        playPauseIcon.classList.add('fa-play');
+        // Jika autoplay diblokir, tambahkan event listener untuk interaksi pengguna
+        console.log('Autoplay diblokir, menunggu interaksi pengguna...');
+        document.body.addEventListener('click', startMusicOnInteraction, { once: true });
+        document.body.addEventListener('scroll', startMusicOnInteraction, { once: true });
     });
 });
 
@@ -174,8 +176,9 @@ function startMusicOnInteraction() {
     audioPlayer.play();
     playPauseIcon.classList.remove('fa-play');
     playPauseIcon.classList.add('fa-pause');
-} 
-	</script>
+}
+</script>
+
 	
 </body>
 </html>
