@@ -8,81 +8,167 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+}
+
+#content {
     padding: 20px;
-}
-
-/* Judul */
-h1 {
+    width: auto;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-/* Galeri Foto */
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
+/* Tombol Menu di Pojok Kanan Atas */
+.menu-button, .close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-button .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.close-button {
+    font-size: 30px;
+    color: #fff;
+    display: none;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* Navigasi Menu (Awalnya Tersembunyi) */
+.menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    width: 200px;
+    height: 100%;
+    z-index: 999;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 50px 20px;
+}
+
+.menu ul li {
     margin: 20px 0;
 }
 
-.photo-gallery img {
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu ul li a:hover {
+    color: #ff9800;
+}
+
+.menu.show {
+    display: block;
+}
+
+/* Konten Undangan */
+#wedding-title, #time-counter, #wedding-info, #comments-attendance {
+    text-align: center;
+    padding: 40px;
+}
+
+#time-counter {
+    padding: 20px;
+}
+
+#groom-bride {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.groom, .bride {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.groom-photo, .bride-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery-container img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
 }
 
-/* Form Komentar */
-#guestForm {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
+#attendance-form {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
 }
 
-#guestForm input, 
-#guestForm select, 
-#guestForm textarea {
+#attendance-form label, #attendance-form input, #attendance-form textarea, #attendance-form select {
+    display: block;
+    width: 100%;
     margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-#guestForm button {
+#attendance-form button {
+    width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #333;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
 
-#guestForm button:hover {
-    background-color: #218838;
+#attendance-form button:hover {
+    background-color: #ff9800;
 }
 
-/* Komentar Tamu */
-#guestComments {
-    margin-top: 20px;
-}
-
-.comment {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.comment strong {
-    color: #007bff;
-}
-
-/* Responsive Design */
+/* Responsive untuk layar kecil */
 @media (max-width: 768px) {
-    #guestForm {
-        width: 100%;
+    .menu-button {
+        width: 40px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .menu ul {
+        padding: 50px 10px;
+    }
+
+    .menu ul li a {
+        font-size: 20px;
+    }
+
+    .close-button {
+        font-size: 40px;
+    }
+
+    #groom-bride {
+        flex-direction: column;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
