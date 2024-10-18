@@ -298,29 +298,4 @@ button:hover {
 }
 
 
-.comment-section {
-    background-color: #fff;
-    width: 80%;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.comment-section h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.comment-section p {
-    font-size: 16px;
-    color: #666;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.utterances-container {
-    margin-top: 20px;
-}
