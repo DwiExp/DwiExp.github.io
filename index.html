@@ -169,6 +169,12 @@ window.addEventListener("load", function() {
     });
 });
 
+// Fungsi untuk mulai musik setelah interaksi pengguna
+function startMusicOnInteraction() {
+    audioPlayer.play();
+    playPauseIcon.classList.remove('fa-play');
+    playPauseIcon.classList.add('fa-pause');
+} 
 	</script>
 	
 </body>
