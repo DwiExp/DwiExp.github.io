@@ -1,0 +1,422 @@
+/* Fullscreen Cover */
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Pastikan tidak ada scroll bar */
+}
+
+#cover .left, #cover .right {
+    position: fixed; /* Menggunakan fixed agar gambar tetap mentok */
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    background-image: url('https://marketplace.canva.com/EAF47Ft96nU/1/0/1600w/canva-hijau-cokelat-ilustrasi-minimalis-memperingati-hari-gerakan-sejuta-pohon-kiriman-instagram-N-GNK7HEJEE.jpg');
+    background-size: cover; /* Gambar akan menutupi area yang ditentukan */
+    z-index: 1; /* Tetapkan gambar di bawah teks */
+    transition: transform 1s ease-in-out; /* Tambahkan transisi */
+}
+
+#cover .left {
+    left: 0; /* Sisi kiri */
+    transform-origin: left; /* Titik rotasi di kiri */
+    background-position: right; /* Posisi gambar pada sisi kanan */
+}
+
+#cover .right {
+    right: 0; /* Sisi kanan */
+    transform-origin: right; /* Titik rotasi di kanan */
+    background-position: left; /* Posisi gambar pada sisi kanan */
+}
+
+/* Efek membuka gambar seperti gerbang */
+#cover.open-gate .left {
+    transform: perspective(1000px) rotateY(-90deg); /* Efek buka ke kiri */
+}
+
+#cover.open-gate .right {
+    transform: perspective(1000px) rotateY(90deg); /* Efek buka ke kanan */
+}
+
+/* Layer terpisah untuk teks "The Wedding Invitation" */
+#title-layer {
+    position: absolute;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    top: 20%;
+    width: 100%;
+    z-index: 3; /* Lebih tinggi dari gambar dan konten lainnya */
+    opacity: 1; /* Opasitas awal */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transisi untuk efek fade dan slide */
+}
+
+#title-layer svg {
+    width: 100%;
+}
+
+/* Animasi slide up untuk content */
+#cover .content {
+    position: relative; 
+    margin-bottom: 130px;
+    color: white;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Di bawah teks, tetapi di atas gambar */
+    transition: opacity 1s ease-in-out ; /* Tambahkan transisi untuk opacity dan transform */
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menyelaraskan item di tengah secara horizontal */
+    justify-content: center; /* Menyelaraskan item di tengah secara vertikal */
+    text-align: center; /* Memastikan teks di dalam div terpusat */
+}
+
+/* Atur margin untuk mengurangi jarak antara teks */
+#cover h1,
+#cover h2 {
+    margin: 0; /* Menghilangkan margin untuk mengurangi jarak */
+    line-height: 1; /* Menyelaraskan jarak antar baris */
+}
+
+#cover h1 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 3rem;
+}
+
+#cover h2 {
+    font-size: 1.5rem;
+}
+
+/* Tambahkan padding atas dan bawah untuk seluruh content agar tidak terlalu dekat dengan tepi */
+#cover .content {
+    padding: 20px 0; /* Mengatur jarak atas dan bawah */
+}
+
+#cover button {
+    padding: 12px 24px;
+    background-color: white; /* Mengatur warna latar belakang tombol menjadi putih */
+    color: black; /* Warna teks tombol */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+    max-width: 250px;
+    margin-top: 10px; /* Jarak atas tombol */
+}
+
+
+
+
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background: url('path_to_header_background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Section Styles */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section h2 {
+    margin-bottom: 15px;
+}
+
+/* Countdown Timer */
+#timer {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Comment Section */
+.attendance-options {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.attendance-label {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none; /* Menyembunyikan input radio asli */
+}
+
+.attendance-text {
+    margin-left: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    #timer {
+        font-size: 1.2rem;
+    }
+}
+
+/* Comment Section */
+#guest-comments {
+    text-align: center; /* Rata tengah untuk teks */
+}
+
+#guest-comments form {
+    display: inline-block; /* Membuat form menjadi inline-block agar dapat diatur posisinya */
+    margin: 0 auto; /* Margin otomatis untuk mengatur posisi tengah */
+    width: 100%; /* Lebar form 100% agar responsive */
+    max-width: 400px; /* Membatasi lebar form */
+}
+
+#guest-comments input[type="text"],
+#guest-comments textarea {
+    width: 100%; /* Lebar input dan textarea 100% untuk responsivitas */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#guest-comments button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Warna hijau untuk tombol */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#guest-comments button:hover {
+    background-color: #218838; /* Warna tombol saat hover */
+}
+
+.attendance-label {
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+.attendance-text {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Warna saat dipilih */
+.attendance-text.selected-yes {
+    background-color: #28a745; /* Hijau untuk Hadir */
+    color: white;
+}
+
+.attendance-text.selected-no {
+    background-color: #dc3545; /* Merah untuk Tidak Hadir */
+    color: white;
+}
+
+#guest-comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Atur lebar maksimum sesuai kebutuhan */
+}
+
+#guest-name,
+#guest-comment,
+.attendance-text {
+    width: 100%; /* Membuat semua input dan textarea lebar 100% */
+    margin-bottom: 10px; /* Jarak antar elemen */
+}
+
+.attendance-options {
+    display: flex;
+    justify-content: space-between; /* Menyebar tombol ke kiri dan kanan */
+}
+
+.attendance-label {
+    flex: 1; /* Membuat label memiliki lebar yang sama */
+    margin: 0 10px; /* Jarak antar label */
+}
+
+.attendance-text {
+    display: flex;
+    justify-content: center; /* Mengatur teks di tengah */
+    align-items: center;
+    padding: 10px 0; /* Ruang dalam tombol */
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.attendance-text.selected-yes {
+    background-color: #28a745; /* Hijau untuk Hadir */
+    color: white;
+}
+
+.attendance-text.selected-no {
+    background-color: #dc3545; /* Merah untuk Tidak Hadir */
+    color: white;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Gaya untuk Popup Musik */
+.music-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#playPauseButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 20px;
+}
+
+#playPauseButton:hover {
+    background-color: #0056b3;
+}
+
+#playPauseIcon {
+    pointer-events: none; /* Mencegah klik pada ikon saja */
+}
+
+
+
+
+/* Galeri Foto */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-gallery img {
+    width: calc(25% - 20px); /* Atur lebar gambar dalam galeri */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+    .photo-gallery img {
+        width: calc(50% - 20px); /* Lebar gambar di layar kecil */
+    }
+
+    .attendance-options {
+        flex-direction: column; /* Ubah tata letak untuk perangkat kecil */
+        align-items: stretch; /* Renggangkan */
+    }
+
+    .attendance-label {
+        margin: 10px 0; /* Jarak antar label pada perangkat kecil */
+    }
+
+    button {
+        width: 100%; /* Tombol mengisi lebar pada perangkat kecil */
+    }
+}
+
+
+
