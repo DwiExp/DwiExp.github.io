@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation of Dwi & Isah</title>
+    <script>
+        var text = "Wedding Invitation of Dwi & Isah - "; // Tambahkan beberapa spasi di akhir
+        var speed = 100; // Kecepatan perubahan (diperlambat untuk lebih smooth)
+        var i = 0;
+
+        function moveTitle() {
+            document.title = text.substring(i, text.length) + text.substring(0, i);
+            i = (i + 1) % text.length;
+            setTimeout(moveTitle, speed);
+        }
+
+        window.onload = moveTitle;
+    </script>
+    <link rel="stylesheet" href="styles.css">
+	<!-- Menambahkan pustaka Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="cover">
+        <div class="left"></div> <!-- Bagian kiri kover -->
+        <div class="right"></div> <!-- Bagian kanan kover -->
+        <div id="title-layer">
+            <!-- Menggunakan SVG untuk teks melengkung -->
+            <svg width="100%" height="200" viewBox="0 0 500 70">
+                <path id="curve" d="M50,80 Q250,0 450,80" fill="transparent"/>
+                <text width="500">
+                    <textPath xlink:href="#curve" startOffset="50%" text-anchor="middle" fill="white" font-size="24px" font-family="Arial">
+                        The Wedding Invitation
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+        <div class="content">
+            <h2>Of</h2>
+            <h1>Tri dan Rani</h1>
+            <button id="openBtn"><i class="fas fa-envelope-open"></i>&nbsp;&nbsp;&nbsp;Buka Undangan</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('openBtn').addEventListener('click', function() {
+            // Mengambil elemen dengan teks dan tombol
+            const content = document.querySelector('#cover .content');
+            const titleLayer = document.getElementById('title-layer');
+    
+            // Menambahkan kelas untuk membuka gambar seperti gerbang
+            document.getElementById('cover').classList.add('open-gate');
+    
+            // Menambahkan kelas slide-up untuk menggeser teks dan tombol ke atas
+            content.classList.add('slide-up');
+            titleLayer.classList.add('slide-up');
+    
+            // Menghilangkan tombol setelah animasi selesai
+            setTimeout(() => {
+                content.style.display = 'none'; // Sembunyikan elemen
+                titleLayer.style.display = 'none'; // Sembunyikan elemen
+            }, 1000); // Waktu delay yang sama dengan durasi slide
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+    
+        
+    <header>
+        <h1>Wedding of Dwi & Isah</h1>
+    </header>
+
+    <section id="countdown">
+        <h2>Hitung Mundur Pernikahan</h2>
+        <div id="timer">
+            <span id="days"></span> Hari
+            <span id="hours"></span> Jam
+            <span id="minutes"></span> Menit
+            <span id="seconds"></span> Detik
+        </div>
+    </section>
+	
+	<script>
+	// Tanggal pernikahan (ganti dengan tanggal yang sesuai)
+const weddingDate = new Date("2025-05-25T10:00:00").getTime(); // Ganti dengan tanggal dan waktu pernikahan Anda
+
+// Update countdown setiap 1 detik
+const countdownFunction = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    // Hitung waktu yang tersisa
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan hasil di elemen yang sesuai
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    // Jika countdown berakhir, tampilkan pesan
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown-timer").innerHTML = "Selamat! Hari Pernikahan Telah Tiba!";
+    }
+}, 1000);
+
+	</script>
+
+    <section id="groom">
+        <h2>Mempelai Laki-laki</h2>
+        <img src="path_to_groom_photo.jpg" alt="Dwi Harmanto" />
+        <p>Putra kedua dari Bpk. Kholy Sudin & Ibu. Sri Suryani</p>
+    </section>
+
+    <section id="bride">
+        <h2>Mempelai Perempuan</h2>
+        <img src="path_to_bride_photo.jpg" alt="Nurazisah" />
+        <p>Putri pertama dari Bpk. Sultang Dg.xxx dan Ibu. Subaedah Dg.xxx</p>
+    </section>
+
+    <section id="event-info">
+        <h2>Informasi Resepsi & Akad</h2>
+        <p>Detail acara akan ditulis di sini...</p>
+    </section>
+
+    <section id="photo-gallery">
+        <h2>Galeri Foto</h2>
+        <div class="gallery">
+            <img src="path_to_photo1.jpg" alt="Gallery Photo 1" />
+            <img src="path_to_photo2.jpg" alt="Gallery Photo 2" />
+            <img src="path_to_photo3.jpg" alt="Gallery Photo 3" />
+            <img src="path_to_photo4.jpg" alt="Gallery Photo 4" />
+            <img src="path_to_photo5.jpg" alt="Gallery Photo 5" />
+            <img src="path_to_photo6.jpg" alt="Gallery Photo 6" />
+            <img src="path_to_photo7.jpg" alt="Gallery Photo 7" />
+            <img src="path_to_photo8.jpg" alt="Gallery Photo 8" />
+        </div>
+    </section>
+	
+
+<section id="guest-comments">
+    <h2>Ucapan & Absensi Kehadiran</h2>
+    <form id="comment-form">
+
+        <div class="attendance-options">
+            <label for="attendance-yes" class="attendance-label">
+                <input type="radio" id="attendance-yes" name="attendance" value="Hadir" required onclick="toggleButton('yes')">
+                <span class="attendance-text">Hadir</span>
+            </label>
+            <label for="attendance-no" class="attendance-label">
+                <input type="radio" id="attendance-no" name="attendance" value="Tidak Hadir" required onclick="toggleButton('no')">
+                <span class="attendance-text">Tidak Hadir</span>
+            </label>
+        </div>
+		
+        <input type="text" id="guest-name" placeholder="Nama Anda" required />
+        
+        <textarea id="guest-comment" placeholder="Tinggalkan komentar..." required></textarea>
+        <button type="submit">Kirim</button>
+    </form>
+    <div id="comments-container"></div>
+</section>
+
+<script>
+function toggleButton(choice) {
+    const yesButton = document.getElementById("attendance-yes");
+    const noButton = document.getElementById("attendance-no");
+    const yesText = yesButton.nextElementSibling; // Mengambil span setelah input
+    const noText = noButton.nextElementSibling;   // Mengambil span setelah input
+
+    // Reset semua pilihan
+    yesText.classList.remove('selected-yes');
+    noText.classList.remove('selected-no');
+
+    // Setel kelas berdasarkan pilihan
+    if (choice === 'yes') {
+        yesText.classList.add('selected-yes');
+    } else {
+        noText.classList.add('selected-no');
+    }
+}
+</script>
+
+<!-- Pemutar Musik Popup -->
+<div class="music-popup" id="musicPopup">
+    <button id="playPauseButton" onclick="toggleMusic()">
+        <i class="fas fa-play" id="playPauseIcon"></i>
+    </button>
+    <audio id="audioPlayer" src="file/separuhku.mp3" preload="auto"></audio>
+</div>
+
+<script>
+// Variabel untuk audio dan tombol
+var audioPlayer = document.getElementById("audioPlayer");
+var playPauseButton = document.getElementById("playPauseButton");
+var playPauseIcon = document.getElementById("playPauseIcon");
+
+// Fungsi untuk toggle musik (play/pause) dan ubah ikon
+function toggleMusic() {
+    if (audioPlayer.paused || audioPlayer.ended) {
+        audioPlayer.play();
+        playPauseIcon.classList.remove('fa-play');
+        playPauseIcon.classList.add('fa-pause');
+    } else {
+        audioPlayer.pause();
+        playPauseIcon.classList.remove('fa-pause');
+        playPauseIcon.classList.add('fa-play');
+    }
+}
+
+// Otomatis play musik saat halaman dimuat
+window.addEventListener("load", function() {
+    // Coba untuk autoplay
+    audioPlayer.play().then(() => {
+        // Ubah ikon menjadi pause jika autoplay berhasil
+        playPauseIcon.classList.remove('fa-play');
+        playPauseIcon.classList.add('fa-pause');
+    }).catch((error) => {
+        // Jika autoplay diblokir, tambahkan event listener untuk interaksi pengguna
+        console.log('Autoplay diblokir, menunggu interaksi pengguna...');
+        document.body.addEventListener('click', startMusicOnInteraction, { once: true });
+        document.body.addEventListener('scroll', startMusicOnInteraction, { once: true });
+    });
+});
+
+// Fungsi untuk mulai musik setelah interaksi pengguna
+function startMusicOnInteraction() {
+    audioPlayer.play();
+    playPauseIcon.classList.remove('fa-play');
+    playPauseIcon.classList.add('fa-pause');
+}
+</script>
+
+	
+</body>
+</html>
