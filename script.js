@@ -1,7 +1,7 @@
 async function postComment() {
-    const token = 'YOUR_TOKEN'; // Ganti dengan token akses pribadi kamu
-    const repoOwner = 'username'; // Ganti dengan nama pengguna GitHub kamu
-    const repoName = 'repo'; // Ganti dengan nama repositori kamu
+    const token = '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'; // Ganti dengan token akses pribadi kamu
+    const repoOwner = 'DwiExp'; // Ganti dengan nama pengguna GitHub kamu
+    const repoName = 'comment-section'; // Ganti dengan nama repositori kamu
 
     // Mengambil nilai dari input form
     const name = document.querySelector('input[name="name"]').value;
@@ -41,9 +41,9 @@ document.querySelector('form').addEventListener('submit', function (e) {
 });
 
 async function fetchComments(issueNumber) {
-    const token = 'YOUR_TOKEN'; // Ganti dengan token akses pribadi kamu
-    const repoOwner = 'username'; // Ganti dengan nama pengguna GitHub kamu
-    const repoName = 'repo'; // Ganti dengan nama repositori kamu
+    const token = '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'; // Ganti dengan token akses pribadi kamu
+    const repoOwner = 'DwiExp'; // Ganti dengan nama pengguna GitHub kamu
+    const repoName = 'comment-section'; // Ganti dengan nama repositori kamu
 
     const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/comments`, {
         headers: {
