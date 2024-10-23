@@ -141,7 +141,7 @@ const countdownFunction = setInterval(() => {
 <section id="guest-comments">
     <h2>Ucapan & Absensi Kehadiran</h2>
     <form id="comment-form">
-
+	<div id="disqus_thread"></div>
         <div class="attendance-options">
             <label for="attendance-yes" class="attendance-label">
                 <input type="radio" id="attendance-yes" name="attendance" value="Hadir" required onclick="toggleButton('yes')">
@@ -160,8 +160,7 @@ const countdownFunction = setInterval(() => {
     </form>
     <div id="comments-container"></div>
 </section>
-// discus
-<div id="disqus_thread"></div>
+
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
