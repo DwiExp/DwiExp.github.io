@@ -140,13 +140,13 @@ const countdownFunction = setInterval(() => {
 
 <section id="guest-comments">
     <h2>Ucapan & Absensi Kehadiran</h2>
-<form action="submit_comment.php" method="POST">
-    <input type="text" name="name" placeholder="Nama" required>
-    <input type="email" name="email" placeholder="Email (opsional)">
-    <textarea name="comment" placeholder="Tinggalkan komentar..." required></textarea>
-    <button type="submit">Kirim</button>
-</form>
-
+    <form action="submit_comment.php" method="POST">
+        <input type="text" name="name" placeholder="Nama" required>
+        <input type="email" name="email" placeholder="Email (opsional)">
+        <textarea name="comment" placeholder="Tinggalkan komentar..." required></textarea>
+        <button type="submit">Kirim</button>
+    </form>
+    <div id="comments-container"></div> <!-- Tempat untuk menampilkan komentar -->
 </section>
 <script src="script.js"></script>
 
