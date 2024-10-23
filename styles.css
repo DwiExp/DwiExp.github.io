@@ -418,5 +418,87 @@ button:hover {
     }
 }
 
+#disqus_thread {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #ddd; /* Menambahkan bingkai */
+    border-radius: 10px; /* Membuat sudut yang melengkung */
+    background-color: #f9f9f9; /* Memberi warna latar belakang */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan efek bayangan */
+}
 
+#disqus_thread h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#disqus_thread .post {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#disqus_thread .post:hover {
+    transform: scale(1.02); /* Memperbesar sedikit elemen saat dihover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Menambahkan efek bayangan lebih tebal */
+}
+
+#disqus_thread .post .author {
+    color: #007bff; /* Warna untuk nama pengguna */
+    font-weight: bold;
+}
+
+#disqus_thread .post .message {
+    color: #444; /* Warna teks komentar */
+    font-size: 16px;
+}
+
+#disqus_thread a {
+    color: #e60000; /* Mengubah warna tautan */
+    text-decoration: none; /* Menghapus garis bawah */
+}
+
+#disqus_thread a:hover {
+    text-decoration: underline; /* Menambahkan garis bawah saat dihover */
+}
+
+#disqus_thread .post-footer .reply-button {
+    background-color: #007bff; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border-radius: 5px; /* Membuat tombol dengan sudut melengkung */
+    padding: 10px 15px; /* Mengatur padding tombol */
+    border: none; /* Menghapus border default */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#disqus_thread .post-footer .reply-button:hover {
+    background-color: #0056b3; /* Warna tombol saat dihover */
+}
+
+@media (max-width: 768px) {
+    #disqus_thread {
+        padding: 10px; /* Mengurangi padding untuk perangkat kecil */
+        border-width: 1px; /* Mengurangi ketebalan bingkai */
+    }
+
+    #disqus_thread h3 {
+        font-size: 18px; /* Mengurangi ukuran font judul */
+    }
+
+    #disqus_thread .post {
+        font-size: 14px; /* Ukuran teks yang lebih kecil untuk perangkat mobile */
+    }
+}
+
+#disqus_thread:empty::before {
+    content: 'Loading comments...';
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+}
 
