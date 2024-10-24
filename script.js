@@ -3,12 +3,10 @@ async function postComment() {
     const repoOwner = 'DwiExp'; // Ganti dengan nama pengguna GitHub kamu
     const repoName = 'comment-section'; // Ganti dengan nama repositori kamu
 
-    // Mengambil nilai dari input form
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value; // Email opsional
     const commentBody = document.querySelector('textarea[name="comment"]').value;
 
-    // Judul issue bisa diatur berdasarkan nama atau pesan
     const issueTitle = `${name} memberikan komentar`;
 
     const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/issues`, {
@@ -27,18 +25,11 @@ async function postComment() {
     if (response.ok) {
         const data = await response.json();
         console.log('Issue created:', data);
-        // Panggil fetchComments di sini jika perlu mengambil komentar setelah membuat issue
         fetchComments(data.number); // Ambil komentar dari issue yang baru dibuat
     } else {
         console.error('Error creating issue:', response.statusText);
     }
 }
-
-// Panggil fungsi postComment saat form dikirim
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Mencegah pengiriman form standar
-    postComment();
-});
 
 async function fetchComments(issueNumber) {
     const token = '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'; // Ganti dengan token akses pribadi kamu
@@ -54,7 +45,7 @@ async function fetchComments(issueNumber) {
 
     if (response.ok) {
         const comments = await response.json();
-        // Menampilkan komentar di website
+        console.log('Fetched comments:', comments); // Log untuk melihat komentar yang diambil
         const commentsContainer = document.getElementById('comments-container');
         commentsContainer.innerHTML = ''; // Kosongkan kontainer sebelum menambahkan komentar baru
         comments.forEach(comment => {
@@ -66,3 +57,9 @@ async function fetchComments(issueNumber) {
         console.error('Error fetching comments:', response.statusText);
     }
 }
+
+// Panggil fungsi postComment saat form dikirim
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Mencegah pengiriman form standar
+    postComment();
+});
