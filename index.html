@@ -180,6 +180,21 @@ function toggleButton(choice) {
 }
 </script>
 
+// Pemutar Musik Popup
+
+<div class="music-popup" id="musicPopup">
+
+    <button id="playPauseButton" onclick="toggleMusic()">
+
+        <i class="fas fa-play" id="playPauseIcon"></i>
+
+    </button>
+
+    <audio id="audioPlayer" src="file/separuhku.mp3" preload="auto"></audio>
+
+</div>
+
+	
 <script>
 // Variabel untuk audio dan tombol
 var audioPlayer = document.getElementById("audioPlayer");
